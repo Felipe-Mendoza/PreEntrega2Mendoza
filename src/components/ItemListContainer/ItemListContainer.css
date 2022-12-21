@@ -1,0 +1,9 @@
+.card{
+    width: 12rem;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.card-text{
+    font-size: 12px;
+}

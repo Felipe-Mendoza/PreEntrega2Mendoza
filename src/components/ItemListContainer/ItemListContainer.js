@@ -1,23 +1,24 @@
 import foto from "../ItemListContainer/padreRico.webp";
-import Card from 'react-bootstrap/Card';
+import './ItemListContainer.css';
+
 export const ItemListContainer = (libro) => {
     return (
 
-        <Card className="card bg-dark text-white mt-2 m-5" style={{ width: '15rem' }}>
-            <Card.Img variant="top" src={foto} />
-            <Card.Body>
-                <Card.Title>
-                    <h5>Autor: {libro.Autor}</h5>
-                    <p>Formato: {libro.Formato}</p>
-                    <p>Categoria: {libro.Categoria}</p>
-                    <p>Idioma: {libro.Idioma}</p>
-                    <p>Año: {libro.Anio}</p>
-
-                </Card.Title>
-
-
-            </Card.Body>
-        </Card>
+        <div className="card">
+            <img src={foto} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">Autor: {libro.Autor}</h5>
+                    <p className="card-text">Formato: {libro.Formato}</p>
+                    <p className="card-text">Categoria: {libro.Categoria}</p>
+                    <p className="card-text">Idioma: {libro.Idioma}</p>
+                    <p className="card-text">Año: {libro.Anio}</p>
+                    <a href="#" className="btn btn-primary">revisar</a>
+                </div>
+        </div>
+        
 
     )
 }
+
+
+

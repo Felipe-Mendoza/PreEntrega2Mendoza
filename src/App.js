@@ -20,6 +20,7 @@ function App() {
 
       <NavBar />
       <ItemListContainer Autor={libro.Autor} Formato={libro.Formato} Categoria={libro.Categoria} Idioma={libro.Idioma} Anio={libro.Anio} />
+      
 
     </div>
 
