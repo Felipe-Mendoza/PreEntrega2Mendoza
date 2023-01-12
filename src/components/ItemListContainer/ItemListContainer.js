@@ -1,24 +1,39 @@
-import foto from "../ItemListContainer/padreRico.webp";
-import './ItemListContainer.css';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { pedirDatos } from "../../Helpers/pedirDatos.js"
+import ItemList from "../ItemList/ItemList"
 
-export const ItemListContainer = (libro) => {
+
+const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState([])
+    const { categoryId } = useParams()
+
+    useEffect(() => {
+        pedirDatos()
+            .then((res) => {
+                if (categoryId) {
+                    setProductos(res.filter(prod => prod.Categoria === categoryId))
+
+                }else{
+                    setProductos(res)
+                }
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [categoryId])
+
+
     return (
-
-        <div className="card">
-            <img src={foto} className="card-img-top" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">Autor: {libro.Autor}</h5>
-                    <p className="card-text">Formato: {libro.Formato}</p>
-                    <p className="card-text">Categoria: {libro.Categoria}</p>
-                    <p className="card-text">Idioma: {libro.Idioma}</p>
-                    <p className="card-text">Año: {libro.Anio}</p>
-                    <a href="#" className="btn btn-primary">revisar</a>
-                </div>
+        <div>
+            <ItemList productos={productos} />
         </div>
-        
+
 
     )
 }
-
+export default ItemListContainer
 
 

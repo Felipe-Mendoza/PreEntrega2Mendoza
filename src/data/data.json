@@ -1,0 +1,99 @@
+[
+    {
+        "id": 1,
+        "Titulo":"Bluebells",
+        "Autor": "Francisca Solar",
+        "Formato": "libro fisico",
+        "Categoria": "Novela",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/Bluebells.jpg",
+        "stock": 23,
+        "precio": 16
+    },
+    {
+        "id": 2,
+        "Titulo":"Conecta con tu pasión",
+        "Autor": "Constanza Núñez ",
+        "Formato": "libro fisico",
+        "Categoria": "Autoayuda",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/Conecta con tu pasión.jpg",
+        "stock": 83,
+        "precio": 13
+    },
+    {
+        "id": 3,
+        "Titulo":"Meditaciones",
+        "Autor": "Marco Aurelio",
+        "Formato": "libro fisico",
+        "Categoria": "Lenguaje",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/Meditaciones.jpg",
+        "stock": 12,
+        "precio": 16
+    },
+    {
+        "id": 4,
+        "Titulo":"Padre Rico, Padre Pobre",
+        "Autor": "Kiyosaki, Robert T.",
+        "Formato": "libro fisico",
+        "Categoria": "Finanzas",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/padreRico.webp",
+        "stock": 2,
+        "precio": 12
+    },
+    {
+        "id": 5,
+        "Titulo":"Volver a empezar",
+        "Autor": "Colleen Hoover",
+        "Formato": "libro fisico",
+        "Categoria": "Juvenil",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/Volver a empezar.jpg",
+        "stock": 100,
+        "precio": 17
+    },
+    {
+        "id": 6,
+        "Titulo":"La Casa en el mar más Azul",
+        "Autor": "T. J. Klune",
+        "Formato": "libro fisico",
+        "Categoria": "Juvenil",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/La Casa en el mar más Azul.jpg",
+        "stock": 100,
+        "precio": 12
+    },
+    {
+        "id": 7,
+        "Titulo":"La Bailarina de Auschwitz",
+        "Autor": "Eger, Edith",
+        "Formato": "libro fisico",
+        "Categoria": "Novelas",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/La Bailarina de Auschwitz.jpg",
+        "stock": 100,
+        "precio": 8
+    },
+    {
+        "id": 8,
+        "Titulo":"Soy Suficiente",
+        "Autor": "María José Lacámara ",
+        "Formato": "libro fisico",
+        "Categoria": "Autoayuda",
+        "Idioma": "Espanol",
+        "Anio": "2023",
+        "imagen": "../img/Soy Suficiente.jpg",
+        "stock": 83,
+        "precio": 13
+    }
+    
+]

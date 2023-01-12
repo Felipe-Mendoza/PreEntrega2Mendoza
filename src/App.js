@@ -2,27 +2,32 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { NavBar } from './components/NavBar/NavBar';
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
 
 function App() {
 
-  const libro = {
-    Autor: "Francisca Solar",
-    Formato: "libro fisico",
-    Categoria: "Novela histórica",
-    Idioma: "Espanol",
-    Anio: "2023",
 
-  }
- 
+
   return (
-    <div>
 
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer Autor={libro.Autor} Formato={libro.Formato} Categoria={libro.Categoria} Idioma={libro.Idioma} Anio={libro.Anio} />
       
+      <Routes>
+        <Route path='/' element={<ItemListContainer />} />
+       
+        <Route path='/Libros/:categoryId' element={<ItemListContainer />} />
+        <Route path='/detail/:itemId' element={<ItemDetailContainer />} />
+        <Route path='*' element={<Navigate to={"/"} />} />
+       
 
-    </div>
+      </Routes>
+      
+    </BrowserRouter>
+
 
   );
 }
