@@ -1,13 +1,27 @@
 import { useNavigate } from "react-router-dom"
 import { ItemCount } from "../ItemCount/ItemCount"
-
-
-
-
+import { useState } from "react"
 const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, imagen, stock, precio }) => {
+    const [cantidad, setCantidad] = useState(1)
     const navigate = useNavigate()
     const handleVolver = () => {
         navigate(-1)
+    }
+
+    const handleAgregar = () => {
+        console.log({
+            id,
+            Autor,
+            Titulo,
+            Formato,
+            Categoria,
+            Idioma,
+            stock,
+            imagen,
+            cantidad
+
+        })
+
     }
     return (
         <div>
@@ -21,8 +35,12 @@ const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, image
                     <div className="col-md-3 offset-md-1 align-self-center">
                         <h2>{Titulo}</h2>
                         <h5>${precio}</h5>
-                        <ItemCount inicial={0} stock={stock} />
-                        <button className="btn btn-success">Agregar carrito</button>
+                        <ItemCount 
+                        cantidad={cantidad}
+                        setCantidad={setCantidad} 
+                        max={stock}
+                        onAdd={handleAgregar} />
+
                     </div>
                 </div>
 
