@@ -1,0 +1,13 @@
+Creacion del cartContexto
+
+Actualizacion de contador del carrito
+Persistencia de la informacion de carrito con localstorage
+
+
+
+
+
+Reviar como aplicar descuento en la aplicacion
+revisar como modifcar cantidad de productoa comprar
+
+Ver como agregar un contexto adicional
