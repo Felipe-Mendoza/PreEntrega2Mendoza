@@ -5,14 +5,14 @@ import carrito from "../CartWidget/img/carrito-de-compras.png";
 import './CartWidget.css';
 export const CartWidget = () => {
 
-    const{totalCantidad} = useContext(CartContext)
+    const { totalCantidad, cart } = useContext(CartContext)
 
     return (
         <Link to="/cart">
-        <div className="carrito">
-            <span><p className="contador">{totalCantidad()}</p></span>
-            <img src={carrito} width="15%" height="30" alt="" />
-        </div>
+            <div className={`carrito ${cart.length > 0 ? "carrito-activo" : ''}`}>
+                <span><p className="contador">{totalCantidad()}</p></span>
+                <img src={carrito} width="15%" height="30" alt="" />
+            </div>
         </Link>
     )
 }

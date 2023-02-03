@@ -11,3 +11,13 @@ Reviar como aplicar descuento en la aplicacion
 revisar como modifcar cantidad de productoa comprar
 
 Ver como agregar un contexto adicional
+
+**********
+Creacion del componente login
+
+Debemos colocar un mesaje de error por contraseña en el login
+Colocar validacion de usuario antes de reliazar la compra, revizar minuro 40 del after hay un ejemplo hasta el 43, del 43 en adelante se le coloca el nombre del usuario en el navbar
+
+Para revisar la seguridad es json web pocken o outff son dos grandes estandares pero es parte del backend
+
+minuto 52 determina el error por email y pasword por separado

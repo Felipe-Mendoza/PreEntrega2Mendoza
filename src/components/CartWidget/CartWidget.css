@@ -1,10 +1,20 @@
-.contador{
+.contador {
     margin-left: 190px;
-    font-size:20px;
+    font-size: 20px;
     margin-bottom: 1px;
     color: red;
 
 }
-.carrito{
+
+.carrito {
     text-align: end;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease-in-out all;
+}
+
+.carrito-activo {
+    visibility: visible;
+    opacity: 1;
+
 }

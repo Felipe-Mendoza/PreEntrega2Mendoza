@@ -1,34 +1,59 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { pedirDatos } from "../../Helpers/pedirDatos.js"
-import ItemList from "../ItemList/ItemList"
+import ItemList from "../ItemList/ItemList";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 
 const ItemListContainer = () => {
 
     const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
+    console.log(productos)
 
     useEffect(() => {
-        pedirDatos()
-            .then((res) => {
-                if (categoryId) {
-                    setProductos(res.filter(prod => prod.Categoria === categoryId))
+        setLoading(true)
 
-                }else{
-                    setProductos(res)
-                }
+        //1) referencia
+        const productosRef = collection(db, "Libros")
+        const q = categoryId
+            ? query(productosRef, where("Categoria", "==", categoryId))
+            : productosRef
 
+
+        //2) peticion asincronica quedamos en el minuto 1:25
+        getDocs(q)
+            .then((resp) => {
+
+                //    setProductos(resp.docs.map((doc) => doc.data())) 
+                //    console.log(resp.docs.map((doc) => doc.data()))
+                //    console.log(resp.docs.map((doc) => doc.id))
+                setProductos(resp.docs.map((doc) => {
+                    return {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+
+                }))
             })
-            .catch((err) => {
-                console.log(err)
+            .finally(() => {
+                setLoading(false)
             })
+
+
+
     }, [categoryId])
 
 
     return (
         <div>
-            <ItemList productos={productos} />
+
+            {
+                loading
+                    ? <h2>Cargando...</h2>
+                    : <ItemList productos={productos} />
+            }
         </div>
 
 

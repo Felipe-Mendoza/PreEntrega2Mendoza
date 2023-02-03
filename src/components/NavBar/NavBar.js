@@ -2,7 +2,12 @@ import { CartWidget } from "../CartWidget/CartWidget";
 import image from "../NavBar/img/LogoLibro.png";
 import './NavBar.css';
 import { Link } from "react-router-dom";
+
+
 export const NavBar = () => {
+
+
+ 
 
     return (
         <header className='header container-fluid color'>
@@ -19,7 +24,7 @@ export const NavBar = () => {
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/Libros/Lenguaje">Lenguaje</Link>
-                 
+
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/Libros/Juvenil" >Juvenil</Link>
@@ -29,7 +34,8 @@ export const NavBar = () => {
                     </li>
 
                 </ul>
-                <CartWidget />
+              <CartWidget />
+
             </nav>
 
         </header>

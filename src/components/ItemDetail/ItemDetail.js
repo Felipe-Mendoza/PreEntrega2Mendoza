@@ -3,8 +3,8 @@ import { ItemCount } from "../ItemCount/ItemCount"
 import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, imagen, stock, precio }) => {
-   
-    const {agregarAlCarrito , isInCart } = useContext(CartContext)
+
+    const { agregarAlCarrito, isInCart } = useContext(CartContext)
     console.log(isInCart(id))
     const [cantidad, setCantidad] = useState(1)
     const navigate = useNavigate()
@@ -13,20 +13,20 @@ const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, image
     }
 
     const handleAgregar = () => {
-      const item ={
-        id,
-        Autor,
-        Titulo,
-        Formato,
-        Categoria,
-        Idioma,
-        stock,
-        imagen,
-        cantidad,
-        precio
+        const item = {
+            id,
+            Autor,
+            Titulo,
+            Formato,
+            Categoria,
+            Idioma,
+            stock,
+            imagen,
+            cantidad,
+            precio
 
-      }
-      agregarAlCarrito(item)
+        }
+        agregarAlCarrito(item)
 
     }
     return (
@@ -41,16 +41,17 @@ const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, image
                     <div className="col-md-3 offset-md-1 align-self-center">
                         <h2>{Titulo}</h2>
                         <h5>${precio}</h5>
+                        {stock <= 20 && <h5>Ultimas unidades</h5>}
                         {
                             !isInCart(id)
-                            ?   <ItemCount
-                            cantidad={cantidad}
-                            setCantidad={setCantidad}
-                            max={stock}
-                            onAdd={handleAgregar} />
-                            :<Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                                ? <ItemCount
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad}
+                                    max={stock}
+                                    onAdd={handleAgregar} />
+                                : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
                         }
-                     
+
 
                     </div>
                 </div>
