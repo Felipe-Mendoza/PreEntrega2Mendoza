@@ -1,10 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
 
 export const useCartContext = () => {
-    return useCartContext(CartContext)
+    return useContext(CartContext)
 }
+
 
 const init = JSON.parse(localStorage.getItem('cart')) || []
 

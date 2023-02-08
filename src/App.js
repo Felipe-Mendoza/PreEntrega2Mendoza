@@ -7,16 +7,18 @@ import AppRouter from './router/AppRouter';
 
 
 
+
 function App() {
 
 
   return (
+    
     <LoginProvider>
       <CartProvider>
         <AppRouter/>
       </CartProvider>
     </LoginProvider>
-
+   
 
 
   );

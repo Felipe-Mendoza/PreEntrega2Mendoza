@@ -1,0 +1,60 @@
+.footer{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 0.5rem;
+  }
+  
+  .footerContainer{
+    position: relative;
+    bottom: 0px;
+    height: 60px;
+    color: white;
+    width: 100%;
+    margin-top: 1px;
+    background-color: #0095ff;
+  }
+  
+  @media (max-width: 769px) {
+    .footerContainer {
+      height: 140px !important; 
+      margin: 0px;
+    } }
+  
+  @media (min-width: 769px) and (max-width: 992px) {
+    .footerContainer {
+      height: 100px !important; 
+      margin: 0px;
+    } }
+  
+  .footer__copyright{
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .footer__nombre{
+    padding-top: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .redes_sociales{
+    padding-right: 10px;
+    text-align: center;
+    height:3rem;
+  }
+  
+  .redes_logos{
+    margin-left: 15px;
+    width: 1.4rem;
+    color:white;
+    padding-top: 3px;
+  }
+  
+  .redes_logos:hover{
+    color: #7cdaf9;
+  }
+  
+ 
