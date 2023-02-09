@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const Cart = () => {
     const { cart, emptycart, totalCart, removerItem } = useContext(CartContext)
-
+    console.log(cart)
 
     if (cart.length === 0) {
         return (
@@ -28,12 +28,13 @@ const Cart = () => {
                         <thead>
                             <tr>
                                 <th scope="col" colSpan={5} className="text-end">
-                                    <Link onClick className="btn btn-warning">Vaciar Carrito</Link>
+                                <button className="btn btn-danger" onClick={emptycart}>Vaciar carrito</button>
+                                    {/* <Link onClick className="btn btn-warning">Vaciar Carrito</Link> */}
                                 </th>
                             </tr>
                             <tr>
                                 <th scope="col">&nbsp;</th>
-                                <th scope="col">Producto</th>
+                                <th scope="col">Titulo libro</th>
                                 <th scope="col" className="text-center">Cantidad</th>
                                 <th scope="col" className="text-center">Precio</th>
                                 <th>&nbsp;</th>
@@ -41,14 +42,14 @@ const Cart = () => {
                         </thead>
                         <tbody>
                             {cart.map(item => (
+                               
                                 <tr key={item.id}>
-                                    <td className="align-middle text-center"><img src={item.Autor} alt={item.Autor} /></td>
-                                    <td className="align-middle">{item.Autor}</td>
-                                    <td className="align-middle text-center">{item.totalCart}</td>
-                                    <td className="align-middle text-center">$ {item.totalCart * item.precio}</td>
-                                    <td className="align-middle text-end"><Link onClick={() => removerItem(item.id)} title="Eliminar Producto">
-                                        <i className="bi bi-trash3 cestoIcon"></i>
-                                    </Link></td>
+                                    <td className="align-middle text-center"><img src={item.imagen} alt={item.Autor} width="20%" /></td>
+                                    <td className="align-middle">{item.Titulo}</td>
+                                    <td className="align-middle text-center">{item.cantidad}</td>
+                                    <td className="align-middle text-center">$ {item.cantidad * item.precio}</td>
+                                    <td className="align-middle text-end"><button onClick={() => removerItem(item.id)} className="btn btn-outline-danger"><FaTrashAlt /></button>
+</td>
                                 </tr>
                             ))}
                             <tr>

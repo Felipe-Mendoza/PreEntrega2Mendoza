@@ -50,7 +50,7 @@ const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, image
                                         setCantidad={setCantidad}
                                         max={stock}
                                         onAdd={handleAgregar} />
-                                    : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
+                                    : <Link to="/cart" className="btn btn-success">Ir a carrito</Link>
                             }
 
 

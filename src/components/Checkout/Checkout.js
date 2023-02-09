@@ -56,13 +56,17 @@ const Checkout = () => {
     }
     if (ordenId) {
         return (
-            <div className="container my-5">
-                <h2>Tu compra sido exitosa</h2>
-                <p>Tu codigo de orden es:{ordenId}</p>
-                <Link to="/">Volver</Link>
+            <div className="container">
+                <div className="row my-4 justify-content-center">
+                    <div className="col-md-12 align-middle text-center m-3">
+                        <h2>Gracias por tu compra!</h2>
+                        {ordenId && <div className="alert alert-success" role="alert">Orden generada: <b>{ordenId}</b></div>}
 
+
+                    </div>
+                    <Link to="/" className="col-md-2 btn btn-primary align-self-center text-center m-3 mb-2">Ir a inicio</Link>
+                </div>
             </div>
-
         )
     }
 
@@ -71,42 +75,113 @@ const Checkout = () => {
     }
 
     return (
+        <div className="container checkout">
+            <div className="row my-5">
+                <div className="col-md-6 my-2 pe-5 ps-5 inputs">
 
-        <div className="container my-5">
-            <h2>Termina mi compra</h2>
-            <hr />
+                    <h2>Termina mi compra</h2>
+                    <hr />
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    className="form-control my-2"
-                    onChange={handleInputChange}
-                    type="text"
-                    name="nombre"
-                    value={values.nombre}
-                    placeholder="tu nombre"
-                />
-                <input
-                    className="form-control my-2"
-                    onChange={handleInputChange}
-                    type="text"
-                    name="direccion"
-                    value={values.direccion}
-                    placeholder="tu direccion"
-                />
-                <input
-                    className="form-control my-2"
-                    onChange={handleInputChange}
-                    type="email"
-                    name="email"
-                    value={values.email}
-                    placeholder="tu email"
-                />
-                <button className="btn btn-primary">Enviar</button>
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-3">
+                            <label className="form-label">Nombre</label>
+                            <input
+                                onChange={handleInputChange}
+                                type="text"
+                                className="form-control"
+                                id="name"
+                                name="nombre"
+                                placeholder="Ingrese su nombre"
+                                value={values.nombre}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Apellido</label>
+                            <input
+                                onChange={handleInputChange}
+                                type="text"
+                                className="form-control"
+                                id="apellido"
+                                name="apellidp"
+                                placeholder="Ingrese su Apellido"
+                                value={values.apellido}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Dirección</label>
+                            <input
+                                onChange={handleInputChange}
+                                type="text"
+                                className="form-control"
+                                id="direccion"
+                                name="direccion"
+                                placeholder="Ingrese su dirección"
+                                value={values.direccion}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Teléfono</label>
+                            <input
+                                onChange={handleInputChange}
+                                type="text"
+                                className="form-control"
+                                id="telefono"
+                                name="telefono"
+                                placeholder="Ingrese su telefono"
+                                value={values.telefono}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">E-mail</label>
+                            <input
+                                onChange={handleInputChange}
+                                type="text"
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Ingrese su email"
+                                value={values.email}
+                            />
+                        </div>
+                        <button className="btn btn-primary">Enviar</button>
 
 
-            </form>
+                    </form>
+                </div>
+                <div className="col-md-6">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col" className="text-center">Cantidad</th>
+                                <th scope="col" className="text-center">Precio</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cart.map(product => (
+                                <tr key={product.id}>
+                                    <td className="align-middle text-center"><img src={product.imagen} alt={product.Autor} width="20%" /></td>
+                                    <td className="align-middle">{product.Titulo}</td>
+                                    <td className="align-middle text-center">{product.cantidad}</td>
+                                    <td className="align-middle text-center">$ {product.cantidad * product.precio}</td>
+                                </tr>
+                            ))}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td className="text-end"><b>Total a Pagar</b></td>
+                                <td className="text-center"><b>$ {totalCart()}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
 
         </div>
+
     )
 }
 export default Checkout
