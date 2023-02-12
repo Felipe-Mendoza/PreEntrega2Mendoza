@@ -1,9 +1,31 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom"
-import { ItemCount } from "../ItemCount/ItemCount";
+import { CartContext } from "../../context/CartContext";
 import './ItemList.css';
 
 
 const ItemList = ({ productos }) => {
+    const { agregarAlCarrito, isInCart } = useContext(CartContext)
+    const [cantidad, setCantidad] = useState(0)
+
+    const items = {
+        id: "",
+        Autor: "",
+        Titulo: "",
+        Formato: "",
+        Categoria: "",
+        Idioma: "",
+        stock: "",
+        imagen: "",
+        cantidad: "",
+        precio: "",
+    }
+
+    const handleAgregar = () => {
+        setCantidad(cantidad + 1)
+             agregarAlCarrito(items)
+
+    }
 
 
     return (
@@ -16,30 +38,57 @@ const ItemList = ({ productos }) => {
                 {productos.map((prod => (
 
 
-                    <div key={prod.id} className="card col-3 m-3 container">
+                    items.id = prod.id,
+                    items.Autor = prod.Autor,
+                    items.Titulo = prod.Titulo,
+                    items.Formato = prod.Formato,
+                    items.Categoria = prod.Categoria,
+                    items.Idioma = prod.Idioma,
+                    items.stock = prod.stock,
+                    items.imagen = prod.imagen,
+                    items.cantidad = 1,
+                    items.precio = prod.precio,
+
+
+
+                    < div key={items.id} className="card col-3 m-3 container" >
 
                         <div className="card-details">
                             <div>
-                                <img src={prod.imagen} alt={prod.Autor} width="100%" />
+                                <img src={items.imagen} alt={items.Autor} width="100%" />
                             </div>
                             <div>
-                                <h6 className="Titulo"> {prod.Titulo} </h6>
-                                <p className="Color-gris">Autor: {prod.Autor} </p>
+                                <h6 className="Titulo"> {items.Titulo} </h6>
+                                <p className="Color-gris">Autor: {items.Autor} </p>
                                 <hr />
-                                <p className="Color-gris">Categoria: {prod.Categoria}</p>
-                                <strong>Precio: ${prod.precio} </strong>
+                                <p className="Color-gris">Categoria: {items.Categoria}</p>
+                                <strong>Precio: ${items.precio} </strong>
                             </div>
 
                         </div>
 
-                        <button className="card-button-carrito">Agregar carrito</button>
-                        <Link to={`/detail/${prod.id}`} className="card-button rounded-bottom">Ver más</Link>
+                        
+                        {!isInCart(items.id) ?
+                            <>
+                                <Link to={`/detail/${items.id}`} className="card-button-carrito">Agregar carrito</Link>
+                                <Link to={`/detail/${items.id}`} className="card-button rounded-bottom">Ver más</Link>
+                            </>
+                            :
+                            <>
+
+                                <Link to={`/detail/${items.id}`} className="card-button-carrito">Ver carrito</Link>
+                                <div className="card-button-green rounded-bottom">Agregado</div>
+                            </>
+                        }
+
+
                     </div>
 
 
-                )))}
-            </section>
-        </div>
+                )))
+                }
+            </section >
+        </div >
     )
 }
 export default ItemList

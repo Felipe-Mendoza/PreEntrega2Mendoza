@@ -12,7 +12,7 @@ export const NavBar = () => {
     return (
         <header className='header container-fluid color'>
             <nav className="container navbar navbar-light color ml-3">
-                <Link className="navbar-brand" to="#">
+                <Link to={"/"} className="navbar-brand">
                     <img src={image} width="100%" height="60" alt="" />
                 </Link>
                 <ul className="nav">

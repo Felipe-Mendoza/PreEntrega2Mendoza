@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const Cart = () => {
     const { cart, emptycart, totalCart, removerItem } = useContext(CartContext)
-    console.log(cart)
+    console.log("Carro"+cart)
 
     if (cart.length === 0) {
         return (
@@ -14,7 +14,7 @@ const Cart = () => {
                 <div className="row my-4">
                     <div className="col-md-12 text-center">
                         <div className="alert alert-danger" role="alert">No se encontraron productos en el carrito</div>
-                        <Link to={"/"} className="btn btn-primary">Volver al Home</Link>
+                        <Link to={"/"} className="btn btn-primary">Volver al Inicio</Link>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@ const Cart = () => {
                         <thead>
                             <tr>
                                 <th scope="col" colSpan={5} className="text-end">
-                                <button className="btn btn-danger" onClick={emptycart}>Vaciar carrito</button>
+                                    <button className="btn btn-danger" onClick={emptycart}>Vaciar carrito</button>
                                     {/* <Link onClick className="btn btn-warning">Vaciar Carrito</Link> */}
                                 </th>
                             </tr>
@@ -42,14 +42,14 @@ const Cart = () => {
                         </thead>
                         <tbody>
                             {cart.map(item => (
-                               
+
                                 <tr key={item.id}>
                                     <td className="align-middle text-center"><img src={item.imagen} alt={item.Autor} width="20%" /></td>
                                     <td className="align-middle">{item.Titulo}</td>
                                     <td className="align-middle text-center">{item.cantidad}</td>
                                     <td className="align-middle text-center">$ {item.cantidad * item.precio}</td>
                                     <td className="align-middle text-end"><button onClick={() => removerItem(item.id)} className="btn btn-outline-danger"><FaTrashAlt /></button>
-</td>
+                                    </td>
                                 </tr>
                             ))}
                             <tr>

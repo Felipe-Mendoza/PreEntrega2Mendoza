@@ -8,6 +8,7 @@ const ItemDetail = ({ id, Autor, Titulo, Formato, Categoria, Idioma, Anio, image
     console.log(isInCart(id))
     const [cantidad, setCantidad] = useState(1)
     const navigate = useNavigate()
+    
     const handleVolver = () => {
         navigate(-1)
     }
