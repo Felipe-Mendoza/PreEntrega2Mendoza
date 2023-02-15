@@ -6,7 +6,7 @@ import './ItemList.css';
 
 const ItemList = ({ productos }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
-    const [cantidad, setCantidad] = useState(0)
+    const [cantidad, setCantidad] = useState(1)
 
     const items = {
         id: "",
@@ -18,12 +18,16 @@ const ItemList = ({ productos }) => {
         stock: "",
         imagen: "",
         cantidad: "",
-        precio: "",
+        precio: ""
     }
 
-    const handleAgregar = () => {
-        setCantidad(cantidad + 1)
-             agregarAlCarrito(items)
+  
+
+    const handleAgregar = (prod) => {
+      
+       
+        agregarAlCarrito({...prod,cantidad})
+
 
     }
 
@@ -46,7 +50,6 @@ const ItemList = ({ productos }) => {
                     items.Idioma = prod.Idioma,
                     items.stock = prod.stock,
                     items.imagen = prod.imagen,
-                    items.cantidad = 1,
                     items.precio = prod.precio,
 
 
@@ -67,10 +70,11 @@ const ItemList = ({ productos }) => {
 
                         </div>
 
-                        
+
                         {!isInCart(items.id) ?
                             <>
-                                <Link to={`/detail/${items.id}`} className="card-button-carrito">Agregar carrito</Link>
+                                <button onClick={() => handleAgregar(prod)} className="card-button-carrito">Agregar carrito</button>
+
                                 <Link to={`/detail/${items.id}`} className="card-button rounded-bottom">Ver más</Link>
                             </>
                             :

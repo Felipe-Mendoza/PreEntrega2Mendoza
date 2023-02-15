@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
@@ -6,7 +7,7 @@ import { Link } from "react-router-dom"
 
 const Cart = () => {
     const { cart, emptycart, totalCart, removerItem } = useContext(CartContext)
-    console.log("Carro"+cart)
+   
 
     if (cart.length === 0) {
         return (
@@ -59,6 +60,7 @@ const Cart = () => {
                                 <td className="text-center"><b>$ {totalCart()}</b></td>
                                 <td></td>
                             </tr>
+                         
                             <tr>
                                 <td></td>
                                 <td className="text-center py-3" colSpan="2"><Link to="/checkout" className="btn btn-primary">Finalizar Compra</Link></td>
