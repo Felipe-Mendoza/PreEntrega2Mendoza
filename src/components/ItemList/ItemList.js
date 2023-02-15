@@ -80,7 +80,7 @@ const ItemList = ({ productos }) => {
                             :
                             <>
 
-                                <Link to={`/detail/${items.id}`} className="card-button-carrito">Ver carrito</Link>
+                                <Link to="/cart" className="card-button-carrito">Ver carrito</Link>
                                 <div className="card-button-green rounded-bottom">Agregado</div>
                             </>
                         }
