@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import { Loader } from "../Loader/Loader";
 
 
 const ItemListContainer = () => {
@@ -38,6 +39,7 @@ const ItemListContainer = () => {
                 }))
             })
             .finally(() => {
+
                 setLoading(false)
             })
 
@@ -51,7 +53,9 @@ const ItemListContainer = () => {
 
             {
                 loading
-                    ? <h2>Cargando...</h2>
+                    ? <div className="loader">
+                        <Loader type={"balls"} color={"#0095ff"} />
+                    </div>
                     : <ItemList productos={productos} />
             }
         </div>

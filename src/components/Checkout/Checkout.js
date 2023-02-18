@@ -10,11 +10,12 @@ const Checkout = () => {
 
     const [ordenId, setOrdenId] = useState(null)
 
-    const [values, setValues] = useState({
-        nombre: '',
-        direccion: '',
-        email: ''
-    })
+    const [values, setValues] = useState({nombre: '',
+    apellido: '',
+    telefono:'',
+    direccion:'',
+    email: ''})
+    
 
     const handleInputChange = (e) => {
         setValues({
@@ -31,8 +32,10 @@ const Checkout = () => {
                 <div className="row my-4 justify-content-center">
                     <div className="col-md-12 align-middle text-center m-3">
                         <h2>Gracias por tu compra!</h2>
-                      
-                        {ordenId && <div className="alert alert-success" role="alert">Orden generada: <b>{ordenId}</b></div>}
+                  
+                        {ordenId && <div className="alert alert-success" role="alert">Número de orden generada: <b>{ordenId}</b></div>}
+         
+
 
 
                     </div>
@@ -81,7 +84,7 @@ const Checkout = () => {
                             apellido: '',
                             telefono:'',
                             direccion:'',
-                            correo: '',
+                            email: '',
 
                         }}
                         validate={(valores) => {
@@ -91,19 +94,30 @@ const Checkout = () => {
                                 errores.nombre = 'Por favor ingresa un nombre'
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
                                 errores.nombre = 'El nombre solo puede contener letras y espacios'
+                                
                             }
+                          
 
                             //Validacion apellido
                             if (!valores.apellido) {
                                 errores.apellido = 'Por favor ingresa un apellido'
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
-                                errores.nombre = 'El apellido solo puede contener letras y espacios'
+                                errores.apellido = 'El apellido solo puede contener letras y espacios'
                             }
+                              //Validacion Direccion
+                              if (!valores.direccion) {
+                                errores.direccion = 'Por favor ingresa una dirección'
+                            } 
                             //Validacion telefono
+                            if (!valores.telefono) {
+                                errores.telefono = 'Por favor ingresa un numero telefonico'
+                            } else if (!/^[0-9]+$/.test(valores.telefono)) {
+                                errores.telefono = 'El número telefonico solo puede contener números'
+                            }
 
                             //Validacion correo
                             if (!valores.email) {
-                                errores.email = 'Por favor ingresa un nombre'
+                                errores.email = 'Por favor ingresa un email'
                             } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
                                 errores.email = 'El email solo puede contener letras, numeros, puntos, guiones y guion bajo '
                             }
@@ -122,6 +136,7 @@ const Checkout = () => {
 
 
                                 <Form>
+                                    {console.log(values)}
                                     <div className="mb-3">
                                         <label htmlFor="nombre" className="form-label">Nombre</label>
                                         <Field
@@ -129,14 +144,19 @@ const Checkout = () => {
                                             type="text"
                                             className="form-control"
                                             id="name"
-                                            name="nombre"
+                                            name="nombre"                                            
                                             placeholder="Ingrese su nombre"
+                                            value={values.nombre}
+                                         
+                                           
 
                                         />
                                         <ErrorMessage name="nombre" component={() => (
 
                                             <div className="error"> {errors.nombre} </div>
                                         )} />
+
+
 
                                     </div>
 
