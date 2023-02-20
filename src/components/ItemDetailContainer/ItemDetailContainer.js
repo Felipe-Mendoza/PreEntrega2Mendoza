@@ -4,6 +4,7 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 
+
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
@@ -18,9 +19,11 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
+        
         <div className="container my-5">
             {
-                item && <ItemDetail {...item} />
+               
+               item && <ItemDetail {...item} />
             }
         </div>
     )

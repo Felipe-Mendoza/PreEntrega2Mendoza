@@ -4,10 +4,12 @@ import ItemList from "../ItemList/ItemList";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Loader } from "../Loader/Loader";
+import Banner from "../Banner/Banner";
+
 
 
 const ItemListContainer = () => {
-
+   
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
@@ -50,6 +52,7 @@ const ItemListContainer = () => {
 
     return (
         <div>
+            <Banner/>
 
             {
                 loading

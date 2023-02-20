@@ -6,6 +6,7 @@ import Cart from '../components/Cart/Cart';
 import { Routes, Route, Navigate  } from 'react-router-dom';
 import Checkout from '../components/Checkout/Checkout';
 import Footer from '../components/Footer/Footer';
+import Cintillo from '../components/Cintillo/Cintillo';
 
 const PrivateRoutes = () => {
 
@@ -13,7 +14,9 @@ const PrivateRoutes = () => {
     return (
 
         <>
+           <Cintillo/>
             <NavBar />
+           
 
             <Routes>
                 <Route path='/' element={<ItemListContainer />} />

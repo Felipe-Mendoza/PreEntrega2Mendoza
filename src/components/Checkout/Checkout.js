@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, Navigate } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import { db } from "../../firebase/config"
-import { collection, addDoc} from "firebase/firestore"
+import { collection, addDoc } from "firebase/firestore"
 import { useFormik } from "formik"
 import './Checkout.css';
 
@@ -18,14 +18,14 @@ const Checkout = () => {
             errors.nombre = 'Por favor ingresa un nombre'
         } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.nombre)) {
             errors.nombre = 'El nombre solo puede contener letras y espacios'
-        } 
-        
+        }
+
         if (!values.apellidp) {
             errors.apellidp = 'Por favor ingresa un apellido'
         } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.apellidp)) {
             errors.apellidp = 'El apellido solo puede contener letras y espacios'
-        } 
-        
+        }
+
         if (!values.direccion) {
             errors.direccion = 'Por favor ingresa una dirección'
         }
@@ -112,14 +112,14 @@ const Checkout = () => {
                                 placeholder="Ingrese su nombre"
                                 value={formik.values.nombre}
                             />
-                          
-                                
-                                 {formik.touched.nombre && formik.errors.nombre ?(
-                                     <div className="errors"> {formik.errors.nombre} </div>
-                                 ):null} 
-                          
 
-                                 
+
+                            {formik.touched.nombre && formik.errors.nombre ? (
+                                <div className="errors"> {formik.errors.nombre} </div>
+                            ) : null}
+
+
+
 
                         </div>
                         <div className="mb-3">
@@ -134,9 +134,9 @@ const Checkout = () => {
                                 placeholder="Ingrese su Apellido"
                                 value={formik.values.apellidp}
                             />
-                            {formik.touched.apellidp && formik.errors.apellidp ?(
-                                     <div className="errors"> {formik.errors.apellidp} </div>
-                                 ):null} 
+                            {formik.touched.apellidp && formik.errors.apellidp ? (
+                                <div className="errors"> {formik.errors.apellidp} </div>
+                            ) : null}
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Dirección</label>
@@ -150,9 +150,9 @@ const Checkout = () => {
                                 placeholder="Ingrese su dirección"
                                 value={formik.values.direccion}
                             />
-                           {formik.touched.direccion && formik.errors.direccion ?(
-                                     <div className="errors"> {formik.errors.direccion} </div>
-                                 ):null} 
+                            {formik.touched.direccion && formik.errors.direccion ? (
+                                <div className="errors"> {formik.errors.direccion} </div>
+                            ) : null}
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Teléfono</label>
@@ -166,9 +166,9 @@ const Checkout = () => {
                                 placeholder="Ingrese su telefono"
                                 value={formik.values.telefono}
                             />
-                       {formik.touched.telefono && formik.errors.telefono ?(
-                                     <div className="errors"> {formik.errors.telefono} </div>
-                                 ):null} 
+                            {formik.touched.telefono && formik.errors.telefono ? (
+                                <div className="errors"> {formik.errors.telefono} </div>
+                            ) : null}
                         </div>
                         <div className="mb-3">
                             <label className="form-label">E-mail</label>
@@ -182,11 +182,11 @@ const Checkout = () => {
                                 placeholder="Ingrese su email"
                                 value={formik.values.email}
                             />
-                              {formik.touched.email && formik.errors.email ?(
-                                     <div className="errors"> {formik.errors.email} </div>
-                                 ):null} 
+                            {formik.touched.email && formik.errors.email ? (
+                                <div className="errors"> {formik.errors.email} </div>
+                            ) : null}
                         </div>
-                        <input type="submit" className="btn btn-primary" value="Enviar"/>
+                        <input type="submit" className="btn btn-primary" value="Enviar" />
 
 
                     </form>

@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/CartContext";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 import './ItemList.css';
 
 
 const ItemList = ({ productos }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
+    const[segmento,setSegmento]=useState("Libros")
+        
+  
 
     const items = {
         id: "",
@@ -35,7 +39,8 @@ const ItemList = ({ productos }) => {
     return (
         <div className="container my-5">
 
-            <h2>Libros</h2>
+<h2>{segmento}</h2>
+           
             <hr />
 
             <section className="row my-4 mb-4">
@@ -69,7 +74,7 @@ const ItemList = ({ productos }) => {
                             </div>
 
                         </div>
-
+                     
 
                         {!isInCart(items.id) ?
                             <>
@@ -87,11 +92,13 @@ const ItemList = ({ productos }) => {
 
 
                     </div>
-
+                    
+                    
 
                 )))
                 }
             </section >
+           
         </div >
     )
 }
